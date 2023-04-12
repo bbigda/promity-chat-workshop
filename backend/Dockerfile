@@ -4,7 +4,7 @@
 FROM gradle:jdk11 as build
 WORKDIR /app
 COPY --chown=gradle:gradle . .
-RUN gradle build --no-daemon
+RUN gradle clean build --no-daemon
 
 # Run stage
 FROM adoptopenjdk:11-jre
