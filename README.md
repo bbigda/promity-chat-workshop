@@ -9,3 +9,11 @@ I want to start development by creating the project structure as a yaml file. I 
 ```
 where is the main backend file ? i want the dockerfiles related to frontend and backend to be in appropriate folders
 ```
+
+```
+Please provide code for all the files related to docker. Indicate where the code should be placed inside the project structure. Remember about exposing appropriate ports. I want all the secrets and variables to be stored and referenced from a separate file
+```
+
+```
+I want the dockerfiles for the frontend and backend to contain a separate build step and run step. I want the backend to be build using gradle.
+```
