@@ -7,7 +7,7 @@ COPY --chown=gradle:gradle . .
 RUN gradle build --no-daemon
 
 # Run stage
-FROM adoptopenjdk/openjdk11:alpine-jre
+FROM adoptopenjdk:11-jre
 WORKDIR /app
 COPY --from=build /app/build/libs/*.jar app.jar
 ENTRYPOINT ["java", "-jar", "/app/app.jar"]

@@ -17,3 +17,12 @@ Please provide code for all the files related to docker. Indicate where the code
 ```
 I want the dockerfiles for the frontend and backend to contain a separate build step and run step. I want the backend to be build using gradle.
 ```
+
+
+```agsl
+Ok. I want to start on the backend development. Please provide code and/or instruction on how to setup basic java spring application. I want the app to run - but do not have any features yet.
+```
+
+```agsl
+
+```
