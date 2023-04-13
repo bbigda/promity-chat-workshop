@@ -1,13 +1,19 @@
 // backend/src/main/java/com/example/jira2/entities/Issue.java
 package com.example.jira2.models;
 
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -36,10 +42,6 @@ public class Issue implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime updatedAt;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "issue_type_id", nullable = false)
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private IssueType issueType;
 }
 
 

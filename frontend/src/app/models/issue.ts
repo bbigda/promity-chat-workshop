@@ -10,4 +10,5 @@ export interface Issue {
     issueType?: IssueType;
 }
 
-export interface NewIssue extends Omit<Issue, 'id'> {}
+export interface NewIssue extends Omit<Issue, 'id'> {
+}
