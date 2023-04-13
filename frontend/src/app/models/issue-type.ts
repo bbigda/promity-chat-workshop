@@ -5,4 +5,5 @@ export interface IssueType {
     updatedAt?: Date;
 }
 
-export interface NewIssueType extends Omit<IssueType, 'id'> {}
+export interface NewIssueType extends Omit<IssueType, 'id'> {
+}
