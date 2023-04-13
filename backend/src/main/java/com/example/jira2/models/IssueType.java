@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.UUID;
 
 @Entity
@@ -16,7 +17,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Table(name = "issue_types")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class IssueType {
+public class IssueType implements Serializable {
     @Id
     @GeneratedValue
     private UUID id;

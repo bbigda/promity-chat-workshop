@@ -6,11 +6,9 @@ import com.example.jira2.repositories.IssueRepository;
 import com.example.jira2.repositories.IssueTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -32,14 +30,13 @@ public class IssueController {
     }
 
     @GetMapping("/{id}")
-    @Cacheable(value = "issue", key = "#id")
     public Optional<Issue> getIssueById(@PathVariable UUID id) {
         return issueRepository.findById(id);
     }
 
 
     @PostMapping
-    @CachePut(value = "issue", key = "#result.id")
+    @CacheEvict(value = "issues", allEntries = true)
     public Issue createIssue(@RequestBody Issue issue) {
         UUID issueTypeId = issue.getIssueType().getId();
         IssueType issueType = issueTypeRepository.findById(issueTypeId)
@@ -50,7 +47,7 @@ public class IssueController {
 
 
     @PutMapping("/{id}")
-    @CachePut(value = "issue", key = "#id")
+    @CacheEvict(value = "issues", allEntries = true)
     public Issue updateIssue(@PathVariable UUID id, @RequestBody Issue issueDetails) {
         Issue issue = issueRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Issue not found"));
         issue.setTitle(issueDetails.getTitle());
@@ -63,7 +60,7 @@ public class IssueController {
     }
 
     @DeleteMapping("/{id}")
-    @CacheEvict(value = "issue", key = "#id")
+    @CacheEvict(value = "issues", allEntries = true)
     public void deleteIssue(@PathVariable UUID id) {
         issueRepository.deleteById(id);
     }
