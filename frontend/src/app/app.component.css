@@ -1,0 +1,12 @@
+h1 {
+    font-size: 5em;
+    transition: 500ms;
+    transition-timing-function: ease-in-out;
+    cursor: default;
+    user-select: none;
+}
+
+h1:hover {
+    color: blue;
+    font-size: 6em;
+}
