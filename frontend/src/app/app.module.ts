@@ -4,8 +4,6 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HttpClientModule} from "@angular/common/http";
-import {DashboardComponent} from './dashboard/dashboard.component';
-import {IssueListComponent} from './issue-list/issue-list.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatFormFieldModule} from "@angular/material/form-field";
@@ -17,8 +15,6 @@ import {MatButtonModule} from "@angular/material/button";
 @NgModule({
     declarations: [
         AppComponent,
-        DashboardComponent,
-        IssueListComponent,
     ],
     imports: [
         BrowserModule,
