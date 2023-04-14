@@ -1,10 +1,10 @@
 # backend/Dockerfile
 
 # Build stage
-FROM gradle:jdk11 as build
+FROM gradle:7.6.1-jdk11 as build
 WORKDIR /app
 COPY --chown=gradle:gradle . .
-RUN gradle clean build --no-daemon
+RUN gradle clean build --no-daemon --stacktrace
 
 # Run stage
 FROM adoptopenjdk:11-jre
